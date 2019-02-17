@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Start Date (format as 02062019)"
-            android:inputType="number" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/minSpendET"

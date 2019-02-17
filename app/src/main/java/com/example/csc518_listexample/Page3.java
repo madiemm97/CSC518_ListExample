@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 public class Page3 extends AppCompatActivity
 {
-    EditText nameET, bankAffET, currentBalET;
+    private EditText nameET, bankAffET, currentBalET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,8 +26,14 @@ public class Page3 extends AppCompatActivity
         String name = this.nameET.getText().toString();
         String bankAff = this.bankAffET.getText().toString();
         int currBal = Integer.parseInt(this.currentBalET.getText().toString());
+
         Bank bank = new Bank(name, bankAff, currBal);
-        bank.display();
+        //bank.display();
+
+        Core.listOfBanks.add(bank);
+        //Core.listAdapter.add(name + " " + bankAff + " " + currBal);
+        Core.stringListOfBanks.add(name + " " + bankAff + " " + currBal);
+        Core.listAdapter.notifyDataSetChanged();
 
         Intent i = new Intent(this, MainActivity.class);
         this.startActivity(i);

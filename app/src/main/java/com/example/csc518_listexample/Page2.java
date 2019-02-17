@@ -30,11 +30,16 @@ public class Page2 extends AppCompatActivity
     public void onSubmitButtonPressed(View v)
     {
         String name = this.nameET.getText().toString();
-        int date = Integer.parseInt(this.startDateET.getText().toString());
+        String date = this.startDateET.getText().toString();
         int minSpend = Integer.parseInt(this.minSpendET.getText().toString());
         int rewardPoints = Integer.parseInt(this.rewardPointsET.getText().toString());
         Card card = new Card(name, date, minSpend, rewardPoints);
-        card.display();
+        //card.display();
+
+        Core.listOfCards.add(card);
+        //Core.listAdapter.add(name + " " + date + " " + minSpend + " " + rewardPoints);
+        Core.stringListOfCards.add(name + " " + date + " " + minSpend + " " + rewardPoints);
+        Core.listAdapter.notifyDataSetChanged();
 
         Intent i = new Intent(this, MainActivity.class);
         this.startActivity(i);
